@@ -30,4 +30,3 @@ class Letting(models.Model):
 
     def __str__(self):
         return str(self.title)
-

@@ -13,7 +13,7 @@ def forwards_func(apps, schema_editor):
 
     # for each object in old app table create new object in new app table
     for profile_obj in old_profile.objects.using(db_alias).all():
-        user = profile_obj.user 
+        user = profile_obj.user
         profile.objects.using(db_alias).create(
             user=user,
             favorite_city=profile_obj.favorite_city,

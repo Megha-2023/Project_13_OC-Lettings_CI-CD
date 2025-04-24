@@ -1,3 +1,5 @@
+""" Module contains views for Profiles"""
+
 from django.shortcuts import render
 from .models import Profile
 
@@ -9,6 +11,8 @@ from .models import Profile
 
 
 def profiles_index(request):
+    """ Function to display all profiles"""
+
     profiles_list = Profile.objects.all()
     context = {'profiles_list': profiles_list}
     return render(request, 'profiles_index.html', context)
@@ -21,6 +25,8 @@ def profiles_index(request):
 
 
 def profile(request, username):
+    """ Function to display single profile"""
+
     profile_obj = Profile.objects.get(user__username=username)
     context = {'profile': profile_obj}
     return render(request, 'profile.html', context)
