@@ -9,12 +9,12 @@ def forwards_func(apps, schema_editor):
     db_alias = schema_editor.connection.alias
 
     # get the model from old app
-    old_address = apps.get_model("oc_lettings_site", "Address")
-    old_letting = apps.get_model("oc_lettings_site", "Letting")
+    # old_address = apps.get_model("oc_lettings_site", "Address")
+    # old_letting = apps.get_model("oc_lettings_site", "Letting")
 
     # for each object in old app table create new object in new app table
     address_map = {}
-    for address_obj in old_address.objects.using(db_alias).all():
+    """for address_obj in old_address.objects.using(db_alias).all():
         new_address_obj = new_address.objects.using(db_alias).create(
             number=address_obj.number,
             street=address_obj.street,
@@ -31,7 +31,7 @@ def forwards_func(apps, schema_editor):
         new_letting.objects.using(db_alias).create(
             title=letting_obj.title,
             address=new_address_obj,
-        )
+        )"""
 
 def reverse_func(apps, schema_editor):
     """ Function for roll back of migration"""
@@ -48,8 +48,7 @@ def reverse_func(apps, schema_editor):
 class Migration(migrations.Migration):
 
     dependencies = [
-       ("lettings", "0001_initial"),
-       ("oc_lettings_site", "0001_initial"),
+       ("lettings", "0001_initial")
     ]
 
     operations = [
