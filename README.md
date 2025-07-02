@@ -76,3 +76,8 @@ Using PowerShell, as above except:
 
 - To activate the virtual environment, `.\venv\Scripts\Activate.ps1` 
 - Replace `which <my-command>` with `(Get-Command <my-command>).Path`
+
+## DEPLOYEMENT
+
+docker run -p 8000:8000 yourdockerhubusername/yourproject:latest
+
