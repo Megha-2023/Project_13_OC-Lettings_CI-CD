@@ -8,7 +8,6 @@ def forwards_func(apps, schema_editor):
     User = apps.get_model("auth", "User")
     db_alias = schema_editor.connection.alias
 
-    # get the model from old app
     # old_profile = apps.get_model("oc_lettings_site", "Profile")
 
     # for each object in old app table create new object in new app table

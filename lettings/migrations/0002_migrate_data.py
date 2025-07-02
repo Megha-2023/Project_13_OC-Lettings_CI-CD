@@ -8,7 +8,6 @@ def forwards_func(apps, schema_editor):
     new_letting = apps.get_model("lettings", "Letting")
     db_alias = schema_editor.connection.alias
 
-    # get the model from old app
     # old_address = apps.get_model("oc_lettings_site", "Address")
     # old_letting = apps.get_model("oc_lettings_site", "Letting")
 
