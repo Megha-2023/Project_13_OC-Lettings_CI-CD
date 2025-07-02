@@ -1,18 +1,14 @@
 # Use the official Python runtime image
-FROM python:3.12
-
-# Create teg app directory
-RUN mkdir /app
+FROM python:3.8
 
 # Set the working directory inside the container
 WORKDIR /app
 
-# Install application dependencies
-COPY requirements.txt /app/
-RUN pip install --no-cache-dir -r requirements.txt
-
 # Copy django project to the container app folder
-COPY . /app/
+COPY . .
+
+# Install application dependencies
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Expose the django port
 EXPOSE 8000
