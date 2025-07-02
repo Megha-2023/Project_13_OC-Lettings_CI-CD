@@ -22,15 +22,14 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
       
-      - name: Run Django tests
+      - name: Run Django Check
         run: |
           python manage.py check
           python manage.py test
       
-      - name: Debug- print Github info
+      - name: Run pytest
         run: |
-          echo "GITHUB_REF: $GITHUB_REF"
-          echo "GITHUB_HEAD_REF: $GITHUB_HEAD_REF"
+          pytest --maxfail=1 --disable-warnings
   
   containerize:
     needs: build-and-test
