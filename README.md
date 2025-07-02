@@ -79,5 +79,7 @@ Using PowerShell, as above except:
 
 ## DEPLOYEMENT
 
+Running docker image:
+
 docker run -p 8000:8000 yourdockerhubusername/yourproject:latest
 
