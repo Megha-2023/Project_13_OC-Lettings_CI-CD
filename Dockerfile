@@ -10,6 +10,9 @@ COPY . .
 # Install application dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
+# Collect static files into STATIC_ROOT
+RUN python manage.py collectstatic --noinput
+
 # Expose the django port
 EXPOSE 8000
 
