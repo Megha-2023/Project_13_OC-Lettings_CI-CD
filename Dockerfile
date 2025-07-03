@@ -10,11 +10,8 @@ COPY . .
 # Install application dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Collect static files into STATIC_ROOT
-RUN python manage.py collectstatic --noinput
-
 # Expose the django port
 EXPOSE 8000
 
 # Rund django's developement server
-CMD [ "python", "manage.py", "runserver", "0.0.0.0:8000" ]
+CMD ["sh", "-c", "python manage.py collectstatic --noinput && python manage.py runserver 0.0.0.0:8000"]
