@@ -27,6 +27,10 @@ jobs:
           python manage.py check
           python manage.py test
       
+      - name: Run linters
+        run: |
+          flake8 lettings profiles oc_lettings_site
+
       - name: Run pytest
         run: |
           pytest --maxfail=1 --disable-warnings

@@ -98,14 +98,13 @@ To get the deployment working correctly, the following configurations are requir
 2. Pipeline has following stages:
     - Build and Test: Tests to verify code quality.
 
-    - Containerize: Starts only after success of previous stage. Builds and tag the Docker image using the current commit hash. Pushes the Docker image to Docker Hub.
+    - Containerize: Runs only after success of previous job. Builds and tag the Docker image using the current commit hash. Pushes the Docker image to Docker Hub.
 
-    - Deploy-Production: Starts only after success of previous stage. SSH into the EC2 instance and pull the new Docker image.
+    - Deploy-Production: Runs only after success of previous job. SSH into the EC2 instance and pull the new Docker image.
 
 3. Stop any running container and start a new container with the updated image.
 
 **Note**: If EC2 instance is stopped or deleted, start a new EC2 instance.
 Make sure Docker and .env are set up as per configuration above.
-Push a commit to master to trigger deployment. The new instance will automatically pull and run the app container.
 If any issues arise, check the GitHub Actions logs in the Actions tab of the repository and the EC2 instance logs.
 
