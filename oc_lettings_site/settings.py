@@ -98,11 +98,16 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # Sentry initialization
-sentry_sdk.init(
-    dsn=os.getenv("SENTRY_DSN"),
-    integrations=[DjangoIntegration()],
-    send_default_pii=True
-)
+
+sentry_dsn = os.getenv("SENTRY_DSN")
+
+if sentry_dsn:
+    sentry_sdk.init(
+        dsn=sentry_dsn,
+        integrations=[DjangoIntegration()],
+        traces_sample_rate=1.0,
+        send_default_pii=True
+    )
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
