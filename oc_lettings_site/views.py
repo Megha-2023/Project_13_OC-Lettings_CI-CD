@@ -14,5 +14,6 @@ def index(request):
 # massa. Integer est nunc, pulvinar atempor et, bibendum id arcu. Vestibulum ante ipsum primis in
 # faucibus orci luctus et ultrices posuere cubilia curae; Cras eget scelerisque
 
+
 def trigger_error(request):
     1 / 0
