@@ -75,7 +75,7 @@ jobs:
           username: ubuntu
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/oclet-app:latest
+            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/oclet-docker:latest
             docker stop ocletapp || true
             docker rm ocletapp || true
             docker run -d --env-file /home/ubuntu/.env -p 8000:8000 --name ocletapp ${{ secrets.DOCKERHUB_USERNAME }}/oclet-docker:latest
