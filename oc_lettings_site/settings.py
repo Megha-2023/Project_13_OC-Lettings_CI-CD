@@ -110,6 +110,8 @@ if sentry_dsn:
         traces_sample_rate=1.0,
         send_default_pii=True
     )
+else:
+    print("SENTRY_DSN not set or empty - skipping Sentry initialization.")
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
