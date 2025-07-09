@@ -83,13 +83,7 @@ To get the deployment working correctly, the following configurations are requir
 
 - Security group configured to allow inbound traffic on port 8000 (or your app port).
 
-- .env file placed in /home/ubuntu/.env with necessary environment variables for Django.
-
-#### AWS Setup:
-
-- EC2 instance running and accessible from the internet.
-
-- Elastic IP assigned for a static public IP to avoid changing IP issues.
+- .env file placed in /home/ubuntu/.env with DJANGO_ALLOWED_HOSTS variable set to Elastic IP assigned for a static public IP to avoid changing IP issues.
 
 ### Deployment Steps
 
@@ -108,3 +102,13 @@ To get the deployment working correctly, the following configurations are requir
 Make sure Docker and .env are set up as per configuration above.
 If any issues arise, check the GitHub Actions logs in the Actions tab of the repository and the EC2 instance logs.
 
+## Sentry Logging
+
+- Get your Sentry DSN from your Sentry project settings.
+
+- Add SENTRY_DSN variable to your EC2 .env file and set it value to your Sentry DSN like this:
+    SENTRY_DSN="https://your-project-dsn@sentry.io/your_project_id"
+
+- Navigate to /sentry-debug to trigger a test error.
+
+- If Sentry is correctly configured, the error will appear under your Sentry project's Issues.
