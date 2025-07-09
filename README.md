@@ -1,6 +1,6 @@
 # Orange County Lettings App
 
-Orange County Lettings is a web app for a startup in the property rentals industry expanding across the U.S.
+"Orange County Lettings" is a web app for a startup in the property rentals industry expanding across the U.S.
 
 ## LOCAL DEVELOPMENT
 
@@ -77,6 +77,8 @@ To get the deployment working correctly, the following configurations are requir
 
 - EC2_HOST — Public IP or DNS of your EC2 instance.
 
+- SENTRY_DSN - your DSN for Sentry logging.
+
 #### EC2 Instance Setup:
 
 - Docker installed and running on the EC2 instance.
@@ -90,13 +92,14 @@ To get the deployment working correctly, the following configurations are requir
 1. Push changes to master branch. This automatically triggers the GitHub Actions workflow which starts pipeline.
 
 2. Pipeline has following stages:
-    - Build and Test: Tests to verify code quality.
+    - *Build and Test*: Tests to verify code quality.
 
-    - Containerize: Runs only after success of previous job. Builds and tag the Docker image using the current commit hash. Pushes the Docker image to Docker Hub.
+    - *Containerize*: Runs only after success of previous job. Builds and tag the Docker image using the current commit hash. Pushes the Docker image to Docker Hub.
 
-    - Deploy-Production: Runs only after success of previous job. SSH into the EC2 instance and pull the new Docker image.
+    - *Deploy-Production*: Runs only after success of previous job. SSH into the EC2 instance and pull the new Docker image.
 
-3. Stop any running container and start a new container with the updated image.
+3. After successfule execution of all jobs in pipeline, Web app is accessible at the following url:
+**http://<your_elastic_IP>:8000** 
 
 **Note**: If EC2 instance is stopped or deleted, start a new EC2 instance.
 Make sure Docker and .env are set up as per configuration above.
