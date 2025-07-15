@@ -78,8 +78,5 @@ Using PowerShell, as above except:
 - Replace `which <my-command>` with `(Get-Command <my-command>).Path`
 
 ## DEPLOYEMENT
-
-Running docker image:
-
-docker run -p 8000:8000 yourdockerhubusername/yourproject:latest
+ Not written in test-branch.
 
