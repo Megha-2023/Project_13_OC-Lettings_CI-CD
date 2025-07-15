@@ -115,3 +115,4 @@ If any issues arise, check the GitHub Actions logs in the Actions tab of the rep
 - Navigate to /sentry-debug to trigger a test error.
 
 - If Sentry is correctly configured, the error will appear under your Sentry project's Issues.
+for test purporse.
