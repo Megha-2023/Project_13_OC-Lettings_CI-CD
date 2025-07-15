@@ -27,10 +27,13 @@ jobs:
           python manage.py check
           python manage.py test
       
-      - name: Debug- print Github info
+      - name: Run linters
         run: |
-          echo "GITHUB_REF: $GITHUB_REF"
-          echo "GITHUB_HEAD_REF: $GITHUB_HEAD_REF"
+          flake8 lettings profiles oc_lettings_site
+
+      - name: Run pytest
+        run: |
+          pytest --maxfail=1 --disable-warnings
   
   containerize:
     needs: build-and-test
